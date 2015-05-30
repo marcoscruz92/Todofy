@@ -32,6 +32,11 @@ $( document ).ready(function() {
   // Display modal to enter name when page loads
   $("#nameModal").modal('show');
 
+  // Auto focus for modals
+  $('#nameModal, #myModal').on('shown.bs.modal', function () {
+      $('#name, #newTask').focus();
+  });
+
   // Add name to the app via submit button
   $("#addName").on("click", function(e){
      e.preventDefault();
