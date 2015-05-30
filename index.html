@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Simple to do list">
+    <meta name="author" content="Marcos Cruz">
+
+    <title>Todo list</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="animate.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="custom.css" media="screen">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+  <div id="wrapper">
+          <!-- Sidebar -->
+          <div id="sidebar-wrapper">
+              <nav id="spy">
+                  <ul class="sidebar-nav nav">
+                      <li class="sidebar-brand">
+                          <a href="#home"><i class="fa fa-user"></i> Hello, <span id="user"></span> </span></a>
+                      </li>
+                      <li>
+                          <a href="#anch1" data-scroll data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-plus"></i> Add Task
+                          </a>
+                      </li>
+
+                  </ul>
+              </nav>
+              <span class="bottom text-center">By: Marcos Cruz <a href="https://github.com/marcoscruz92"><i class="fa fa-github"></i></a> </span>
+          </div>
+
+          <!-- Page content -->
+          <div id="page-content-wrapper">
+              <div class="content-header">
+                  <h1 id="home">
+                      <a id="menu-toggle" href="#" class="btn-menu toggle">
+                          <i class="fa fa-bars"></i>
+                      </a>
+                      Todofy
+                  </h1>
+              </div>
+
+              <div class="page-content inset" data-spy="scroll" data-target="#spy">
+                  <div class="row">
+                      <div class="col-md-4">
+                        <h2 class="text-center">Pending</h2>
+                        <div class="tasks-pending">
+                          <ul class="list-group">
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <h2 class="text-center">In progress</h2>
+                        <div class="tasks-inprogress">
+                          <ul class="list-group">
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <h2 class="text-center">Completed</h2>
+                        <div class="tasks-completed">
+                          <ul class="list-group">
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+
+      <!-- Name modal -->
+      <div class="modal fade" id="nameModal" tabindex="-1" role="dialog"
+           aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                      <!-- <button type="button" class="close"
+                         data-dismiss="modal">
+                             <span aria-hidden="true">&times;</span>
+                             <span class="sr-only">Close</span>
+                      </button> -->
+                      <h4 class="modal-title" id="myModalLabel">
+                          Welcome to todofy
+                      </h4>
+                  </div>
+                  <!-- Modal Body -->
+                  <div class="modal-body">
+                      <form id="formName" role="form">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Enter name</label>
+                            <input type="name" class="form-control"
+                            id="name" placeholder="Enter name"/>
+                        </div>
+
+                        <button id="addName" type="submit" class="btn btn-default">Submit</button>
+                      </form>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+
+    <!-- Task Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close"
+          data-dismiss="modal">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          New Task
+        </h4>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <form id="taskForm" role="form" action="" method="Post">
+          <div class="form-group">
+            <div id="errorMessage" class="alert alert-danger alert-dismissible hidden" role="alert">
+              <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+              <strong>Warning!</strong> Task cannot be empty
+            </div>
+            <label for="exampleInputEmail1">Please enter new task</label>
+            <input type="text" class="form-control"
+            id="newTask" name="newTask" placeholder="Enter Task"/>
+          </div>
+          <button type="button" id="addTask" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
